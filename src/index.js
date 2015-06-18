@@ -14,8 +14,9 @@ let KindaApplication = KindaObject.extend('KindaApplication', function() {
       'name', 'displayName', 'version'
     ]));
 
-    let log = options.log;
+    let log = options.log || {};
     if (!KindaLog.isClassOf(log)) {
+      if (!log.applicationName) log.applicationName = this.name;
       log = KindaLog.create(log);
     }
     this.log = log;
