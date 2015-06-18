@@ -5,6 +5,7 @@ let KindaObject = require('kinda-object');
 let KindaEventManager = require('kinda-event-manager');
 let KindaUtil = require('kinda-util');
 let KindaLog = require('kinda-log');
+let KindaNotifier = require('kinda-notifier');
 let KindaLocalizer = require('kinda-localizer');
 
 let KindaApplication = KindaObject.extend('KindaApplication', function() {
@@ -25,6 +26,13 @@ let KindaApplication = KindaObject.extend('KindaApplication', function() {
       log = KindaLog.create(log);
     }
     this.log = log;
+
+    let notifier = options.notifier || {};
+    if (!KindaNotifier.isClassOf(notifier)) {
+      if (!notifier.applicationName) notifier.applicationName = this.name;
+      notifier = KindaNotifier.create(notifier);
+    }
+    this.notifier = notifier;
 
     let localizer = options.localizer;
     if (!KindaLocalizer.isClassOf(localizer)) {
