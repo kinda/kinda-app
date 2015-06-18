@@ -3,6 +3,7 @@
 let _ = require('lodash');
 let KindaObject = require('kinda-object');
 let KindaEventManager = require('kinda-event-manager');
+let KindaUtil = require('kinda-util');
 let KindaLog = require('kinda-log');
 let KindaLocalizer = require('kinda-localizer');
 
@@ -13,6 +14,10 @@ let KindaApplication = KindaObject.extend('KindaApplication', function() {
     _.assign(this, _.pick(options, [
       'name', 'displayName', 'version'
     ]));
+
+    this.util = KindaUtil.create();
+
+    this.environment = this.util.getEnvironment();
 
     let log = options.log || {};
     if (!KindaLog.isClassOf(log)) {
