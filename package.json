@@ -1,12 +1,12 @@
 {
-  "name": "kinda-application",
+  "name": "kinda-app",
   "version": "0.1.0",
   "description": "...",
   "author": "Manuel Vila <mvila@3base.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/kinda/kinda-application"
+    "url": "git://github.com/kinda/kinda-app"
   },
   "main": "lib/index.js",
   "scripts": {
