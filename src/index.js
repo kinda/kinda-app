@@ -13,7 +13,7 @@ let KindaApp = KindaObject.extend('KindaApp', function() {
 
   this.creator = function(options = {}) {
     _.assign(this, _.pick(options, [
-      'name', 'displayName', 'version'
+      'name', 'displayName', 'projectName', 'version'
     ]));
 
     this.util = KindaUtil.create();
