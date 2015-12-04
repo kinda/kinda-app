@@ -43,11 +43,11 @@ let KindaApp = KindaObject.extend('KindaApp', function() {
 
   Object.defineProperty(this, 'locale', {
     get() {
-      if (!this._locale) this._locale = this.localizer.getLocale();
+      if (!this._locale) this._locale = this.localizer.createLocale();
       return this._locale;
     },
     set(locale) {
-      if (_.isString(locale)) locale = this.localizer.getLocale(locale);
+      if (_.isString(locale)) locale = this.localizer.createLocale(locale);
       if (this._locale !== locale) {
         this._locale = locale;
         this.emit('locale.didChange', locale);
